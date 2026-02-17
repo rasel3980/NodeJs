@@ -6,7 +6,19 @@ app.use(('/api/user'),userRoute)
 app.get('/',(req,res)=>{
     res.send('http get request')
 })
-
+app.get('/user/info',(req,res)=>{
+    res.status(200).json({
+        'name': 'Rasel',
+        'message': 'successfully create json file',
+        statusCode : 200,
+    }
+    )
+})
+app.get('/user',(req,res)=>{
+    res.cookie('name', 'Rasel')
+    res.cookie('id', '7756786')
+    res.status(200).send('checking user cookies')
+})
  app.use((req,res)=>{
     res.send('<h1>404  your request is not a valid </h1>')
  })
