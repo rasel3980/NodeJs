@@ -13,6 +13,13 @@ app.get('/user/info',(req,res)=>{
         statusCode : 200,
     }
     )
+});
+
+// Request with query parameter
+app.get('/user/query',(req,res)=>{
+    const id = req.query.id;
+    const name = req.query.name;
+    res.send(`User name is: ${name} , id: ${id}`)
 })
 app.get('/user',(req,res)=>{
     res.cookie('name', 'Rasel')
