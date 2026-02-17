@@ -21,6 +21,18 @@ app.get('/user/query',(req,res)=>{
     const name = req.query.name;
     res.send(`User name is: ${name} , id: ${id}`)
 })
+
+// Request with route parameter
+app.get('/user/name/:name/id/:id',(req,res)=>{
+    const {name,id} = req.params
+    res.send(`User name is : ${name} , id: ${id}`)
+});
+// Request with header
+app.get('/user/identy',(req,res)=>{
+    const id = req.header('id');
+    const name = req.header('name');
+    res.send(`User name is: ${name} and id: ${id}`)
+})
 app.get('/user',(req,res)=>{
     res.cookie('name', 'Rasel')
     res.cookie('id', '7756786')
