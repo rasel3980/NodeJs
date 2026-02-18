@@ -1,5 +1,6 @@
 const express = require('express');
-const userRoute = require('./routes/user.route')
+const userRoute = require('./routes/user.route');
+const bodyParser = require('body-parser');
 const app = express();
 
 app.use(('/api/user'),userRoute)
@@ -32,6 +33,17 @@ app.get('/user/identy',(req,res)=>{
     const id = req.header('id');
     const name = req.header('name');
     res.send(`User name is: ${name} and id: ${id}`)
+})
+// json data post
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded())
+
+// parse application/json
+app.use(bodyParser.json())
+app.post('/user/jsonInfo',(req,res)=>{
+    const {name,id} = req.body;
+    res.send(`Welcome to ${name} , your id : ${id}`)
 })
 app.get('/user',(req,res)=>{
     res.cookie('name', 'Rasel')
