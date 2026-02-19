@@ -45,6 +45,16 @@ app.post('/user/jsonInfo',(req,res)=>{
     const {name,id} = req.body;
     res.send(`Welcome to ${name} , your id : ${id}`)
 })
+// receive form data
+app.get('/register',(req,res)=>{
+    res.sendFile(__dirname + '/form.html')
+})
+// send form data
+app.post('/register',(req,res)=>{
+    const fullName = req.body.fullName;
+    const age = req.body.age;
+    res.send(`<h2>My name is: ${fullName} and my age is: ${age}</h2>`)
+})
 app.get('/user',(req,res)=>{
     res.cookie('name', 'Rasel')
     res.cookie('id', '7756786')
