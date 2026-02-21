@@ -1,0 +1,14 @@
+h1{
+    text-align: center;
+    color: red;
+}
+img{
+    width:400px;
+}
+div{
+    display: flex;
+    flex-direction: row;
+    justify-items: center;
+    align-items: center;
+    gap: 20px;
+}
