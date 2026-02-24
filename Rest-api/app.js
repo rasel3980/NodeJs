@@ -1,6 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
-const cors = require('cors')
+const cors = require('cors');
+const users = require('./Models/user.model');
 
 const app = express();
 
@@ -10,6 +11,10 @@ app.use(bodyParser.json());
 
 app.get('/',(req,res)=>{
     res.sendFile(__dirname + "/index.html")
+})
+
+app.get('/user',(req,res)=>{
+    res.status(200).json({users})
 })
 
 // route not found
