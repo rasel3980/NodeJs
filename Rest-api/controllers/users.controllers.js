@@ -19,8 +19,16 @@ const createUser = (req,res)=>{
 // update user by put method
 const updateUser = (req,res)=>{
     const id = req.params.id
+    const {username,email} = req.body;
+    users.filter((user)=>user.id === id).map(
+        (selectedUser)=>{
+            selectedUser.username=username;
+            selectedUser.email =email;
 
-    res.status(200).json({message: id})
+        }
+    )
+
+    res.status(200).json(users)
 }
 
 module.exports = {getAllUser,createUser,updateUser};
